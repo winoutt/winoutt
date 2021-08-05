@@ -6,6 +6,8 @@
 
 A Web App built with Laravel and Vuejs.
 
+[Admin backend](https://github.com/winoutt/admin-backend)
+
 ### [Django version](https://github.com/winoutt/winoutt-django)
 
 DEMO: https://ibb.co/album/9GXzJb
