@@ -6,6 +6,6 @@
 
 A Web App built with Laravel and Vuejs.
 
-[Django version](https://github.com/winoutt/winoutt-django)
+### [Django version](https://github.com/winoutt/winoutt-django)
 
 DEMO: https://ibb.co/album/9GXzJb
