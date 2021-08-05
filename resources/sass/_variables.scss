@@ -1,0 +1,44 @@
+// Typography
+$font-family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, "Oxygen", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-size-base: 0.875rem;
+$line-height-base: 1.429;
+$border-color: #dee2e6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #F44336;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #388E3C;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$primary: #e31c47;
+$secondary: #9da4b2;
+$grey: #c3c8d0;
+$grey-light: #f8f9fc;
+$light: #fefefe;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "grey": $grey,
+  "grey-light": $grey-light,
+  "light": $light
+);
+
+$body-color: #2d3339;
+$box-shadow: 0 1px 2px 0 rgba(60,64,67,.30), 0 2px 6px 2px rgba(60,64,67,.15);
+
+// The resone behind setting higher grid is to get accurate value for columns. 
+// For example according to the requirement, We need accuracy in column layouts.
+// For example 240px for sidebar, 300px for aside etc...  (Ref: #191) in 1360
+// viewport. If we set the fixed values to columns the responsive become harder 
+// to  maintain. And we can't implement a fluid elements if we go with fixed 
+// values instead of absolute. And we can't achieve ~240px in 12 or 16 grids.
+// Because in 12 columns the column accuracy will be 1360/12 = 113.333333. In 16
+// the column accuracy will be 85. So setting 144 to get a accuracy of ~10px.
+$grid-columns: 144;

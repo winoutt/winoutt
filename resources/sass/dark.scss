@@ -1,0 +1,780 @@
+@use 'sass:map';
+
+/**
+  * Table of contents
+  *   1. Variables
+  *   2. Functions
+  *   3. Global
+  *   4. Pages
+  *     4.1 Settings
+  *     4.2 People
+  *     4.3 Messages
+  *     4.4 Home
+  *     4.5 Profile
+  *     4.6 Notifications
+  *     4.7 Team
+  *     4.8 Search
+  *   5. Components
+  *     5.1 Sidebar
+  *     5.2 Header
+  *     5.3 Card
+  *     5.4 People may know
+  *     5.5 Trending tags
+  *     5.6 Aside footer
+  *     5.7 Dropdown
+  *     5.8 Notes
+  *     5.9 Post
+  *     5.10 Content
+  *     5.11 Team info
+  *     5.12 Top teammates
+  *     5.13 Alert
+  *     5.14 Input image
+  *     5.15 Comment mention box
+  *     5.16 Poll result
+  *     5.17 Link preview
+  *     5.18 Comments
+  *     5.19 Linkify
+  *     5.20 Close
+  *     5.21 User mutual connections
+  *     5.22 Job title
+  *     5.23 Read more
+  *     5.24 Input password
+  *     5.25 Date picker
+  *   6. Modal
+  *     6.1 SessionAlertModal
+  *     6.2 UserMutualConnectionsModal
+  *     6.3 PostStarredModal
+  *     6.4 ArticleWriteModal
+  *     6.5 Article read modal
+  *     6.6 Post create modal
+  *     6.7 Article read modal
+  *     6.8 User connections modal
+  *   7. Responsive
+  *     7.1 Mobile logo
+  *     7.2 Mobile menu
+  */
+
+/**
+  * 1. Variables
+  */
+$dark-colors: (
+  'primary': #e31c47,
+  'secondary': #14151b,
+  'secondary-light': #1c1e26,
+  'secondary-lighten': #252732,
+  'secondary-lightest': #2d303b,
+  'gray-light': #e7ebed,
+  'gray-silver': #BEC3D0,
+  'gray': #868DA6,
+  'gray-darker': #727C91,
+  'gray-dark': #4f5258,
+  'focus': #f18ea3,
+);
+
+/**
+  * 2. Functions
+  */
+  @function dark-color($name) {
+    @return map.get($dark-colors, $name);
+  }
+
+.dark-mode {
+
+  /**
+    * 3. Global
+    */
+  background: dark-color('secondary') !important;
+  color: dark-color('gray-light');
+
+  .container {
+    background: dark-color('secondary') !important;
+    border-color: dark-color('gray-dark') !important;
+  }
+
+  .form-control, textarea {
+    background: dark-color('secondary-light') !important;
+    color: dark-color('gray-silver');
+    border-color: dark-color('gray-dark') !important;
+
+    &:focus {
+      border-color: dark-color('focus') !important;
+    }
+  }
+
+  svg {
+    fill: dark-color('gray-light');
+  }
+
+  a, button.link {
+    color: dark-color('gray');
+    &.no-hover {
+      color: dark-color('gray-light');
+      &:hover {
+        color: dark-color('gray-light');
+      }
+    }
+  }
+
+  .scroll {
+    &::-webkit-scrollbar-thumb {
+      background-color: dark-color('secondary') !important;
+    }
+  }
+
+  .btn-secondary {
+    background-color: dark-color('gray-darker');
+    border-color: dark-color('gray-darker');
+    &:hover {
+      background-color: dark-color('gray');
+      border-color: dark-color('gray');
+    }
+  }
+
+  .btn-custom-grey {
+    border-color: dark-color('gray-darker') !important;
+    color: dark-color('gray-light') !important;
+    &:hover {
+      background-color: dark-color('gray-darker') !important;
+    }
+  }
+
+  /**
+    * 4.1 Settings
+    */
+    .settings-menu {
+      background-color: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+    }
+
+  /**
+    * 4.2 People
+    */
+    .user-vertical {
+      .card {
+        background: dark-color('secondary-light') !important;
+        border-color: dark-color('gray-dark') !important;
+      }
+    }
+
+  /**
+    * 4.3 Messages
+    */
+    .messages {
+      .messages-chat {
+        &.active-chat, &:hover {
+          background: dark-color('secondary-light') !important;
+        }
+        &.new-message {
+          background: dark-color('secondary-lighten') !important;
+        }
+        .time, .footer {
+          color: dark-color('gray') !important;
+        }
+      }
+
+      .message-details {
+        .time {
+          color: dark-color('gray');
+        }
+      }
+    
+      .messages-content {
+        .messages-header {
+          border-color: dark-color('gray-dark') !important;
+        }
+        .day-wrapper {
+          .line {
+            background: dark-color('gray-dark') !important;
+          }
+        }
+        .content-message {
+          color: dark-color('gray-silver');
+        }
+        .messages-send {
+          background: dark-color('secondary-light') !important;
+          textarea {
+            background: dark-color('secondary-light') !important;
+            border-color: dark-color('secondary-light') !important;
+            color: dark-color('gray-light');
+          }
+        }
+      }
+    }
+  
+  /**
+    * 4.4 Home
+    */
+  .home-page {
+    .home-team .name {
+      background-color: dark-color('secondary-lighten') !important;
+    }
+  }
+
+  /**
+    * 4.5 Profile
+    */
+  .profile {
+    .profile-info {
+      .card, .border-bottom, .count-wrapper, .avatar-counter {
+        border-color: dark-color('gray-dark') !important;
+      }
+      .contact-wrapper {
+        .location-name,
+        a {
+          color: dark-color('gray-silver');
+        }
+        .icon {
+          fill: dark-color('gray-silver');
+        }
+      }
+      .user-about {
+        .read-more {
+          color: dark-color('gray-silver');
+        }
+      }
+    }
+  }
+
+  /**
+    * 4.6 Notifications
+    */
+  .notifications {
+    header {
+      background: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+    }
+    
+    .notification,
+    .notification-request {
+      background: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+    }
+
+    .unread {
+      background: dark-color('secondary-lighten') !important;
+    }
+  }
+
+  /**
+    * 4.7 Team
+    */
+  .team {
+    .team-create-post {
+      background: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+    }
+  }
+
+  /**
+    * 4.8 Search
+    */
+  .search {
+    .search-user {
+      background: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+    }
+  }
+
+  /**
+    * 5.1 Sidebar
+    */
+  .sidebar-wrapper {
+    background: dark-color('secondary-light') !important;
+    color: dark-color('gray-light');
+
+    .sidebar {
+      border-color: dark-color('gray-dark') !important;
+    }
+
+    .sidebar-counts {
+      .connections, .posts {
+        border-color: dark-color('gray-dark') !important;
+      }
+    }
+
+    .menu-item {
+      svg {
+        fill: dark-color('gray-silver');
+      }
+
+      h6 {
+        color: dark-color('gray-silver');
+      }
+    }
+  }
+
+  /**
+    * 5.2 Header
+    */
+    #header {
+      background-color: dark-color('secondary') !important;
+
+      .search-global .input-group-text {
+        background: dark-color('secondary-light') !important;
+        border-color: dark-color('gray-dark') !important;
+
+        &.update-border {
+          border-color: dark-color('focus') !important;
+        }
+      }
+
+      .notes {
+        color: dark-color('gray-silver');
+        .icon-note {
+          fill: dark-color('gray-silver');
+        }
+      }
+    }
+
+  /**
+    * 5.3 Card
+    */
+  .card {
+    background-color: dark-color('secondary-light');
+  }
+
+  /**
+    * 5.4 People may know
+    */
+  .aside-people {
+    border-color: dark-color('gray-dark') !important;
+    .user {
+      background-color: dark-color('secondary-light') !important;
+    }
+  }
+
+  /**
+    * 5.5 Trending tags
+    */
+  .aside-trending-tags {
+    border-color: dark-color('gray-dark') !important;
+
+    .hashtag a {
+      color: dark-color('gray-silver');
+      &:hover {
+        color: dark-color('primary');
+      }
+    }
+  }
+
+  /**
+    * 5.6 Aside footer
+    */
+  .aside-footer {
+    a, p {
+      color: dark-color('gray');
+    }
+  }
+
+  /**
+    * 5.7 Dropdown
+    */
+  .dropdown {
+    .dropdown-menu {
+      background: dark-color('secondary');
+      border-color: dark-color('gray-dark') !important;
+    }
+
+    .dropdown-item {
+      color: dark-color('gray-silver');
+
+      &:hover {
+        background: dark-color('secondary-lighten');
+      }
+    }
+  }
+
+  /**
+    * 5.8 Notes
+    */
+  #notes {
+    background-color: dark-color('secondary-light') !important;
+    border-color: dark-color('gray-dark') !important;
+
+    .note {
+      border-color: dark-color('gray-dark') !important;
+
+      .note-content {
+        color: dark-color('gray-silver') !important;
+
+        .editor:empty::before {
+          color: dark-color('gray-dark') !important;
+        }
+      }
+    }
+  }
+
+  /**
+    * 5.9 Post
+    */
+  .post {
+    .team {
+      background-color: dark-color('secondary-lightest') !important;
+      border: 1px solid dark-color('gray-dark');
+    }
+
+    .post-wrapper {
+      background-color: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+      .caption,
+      .poll,
+      .content .document a {
+        color: dark-color('gray-silver');
+      }
+      .article-content {
+        * {
+          color: dark-color('gray-silver') !important;
+        }
+      }
+      .time {
+        color: dark-color('gray') !important;
+      }
+    }
+
+    .article .read-more .btn {
+      background-color: dark-color('gray-dark');
+      border-color: dark-color('gray');
+    }
+  }
+
+  /**
+    * 5.10 Content
+    */
+  .content {
+    .article {
+      .read-more {
+        background-color: dark-color('secondary-light') !important;
+        box-shadow: 0px -14px 16px 4px dark-color('secondary-light') !important;
+      }
+    }
+  }
+
+  /**
+    * 5.11 Team info
+    */
+  .team-info {
+    .card {
+      border-color: dark-color('gray-dark') !important;
+
+      .goal {
+        color: dark-color('gray-silver');
+      }
+    }
+  }
+
+  /**
+    * 5.12 Top teammates
+    */
+  .team-top-contributors {
+    .card {
+      border-color: dark-color('gray-dark') !important;
+    }
+  }
+
+  /**
+    * 5.13 Alert
+    */
+  .alert-wrapper {
+    .alert {
+      background-color: dark-color('secondary-lighten') !important;
+      border: 1px solid dark-color('gray-dark') !important;
+
+      .message {
+        color: #fff;
+      }
+    }
+  }
+
+  /**
+    * 5.14 Input image
+    */
+  .input-image {
+    .image-wrapper {
+      background: dark-color('gray-dark') !important;
+    }
+  }
+
+  /**
+    * 5.15 Comment mention box
+    */
+  .comment-mentionbox {
+    background: dark-color('secondary-light') !important;
+    border-color: dark-color('gray-dark') !important;
+
+    .user:hover {
+      background: dark-color('secondary') !important;
+    }
+  }
+
+  /**
+    * 5.16 Poll result
+    */
+  .poll-result {
+    .choices {
+      .background {
+        background: dark-color('secondary-lightest') !important;
+      }
+    }
+  }
+
+  /**
+    * 5.17 Link preview
+    */
+  .content-link-preview {
+    background: dark-color('secondary-light') !important;
+    border-color: dark-color('gray-dark') !important;
+  }
+
+  /**
+    * 5.18 Comments
+    */
+  .comments-wrapper {
+    .upvote {
+      background: dark-color('secondary-lightest') !important;
+    }
+    .comments-heading {
+      color: dark-color('gray-light');
+    }
+    .comment-content {
+      color: dark-color('gray-silver');
+    }
+  }
+
+  /**
+   * 5.19 Linkify
+   */
+  .linkify-link {
+    color: dark-color('primary');
+  }
+
+  /**
+   * 5.20 Close
+   */
+  .close {
+    &:hover {
+      background-color: dark-color('secondary-lightest');
+    }
+  }
+
+  /**
+   * 5.21 User mutual connections
+   */
+  .user-mutualConnections {
+    .icon-connections {
+      fill: dark-color('gray');
+    }
+    .count {
+      color: dark-color('gray') !important;
+    }
+  }
+
+  /**
+   * 5.22 Job title
+   */
+  .job-title {
+    color: dark-color('gray') !important;
+  }
+
+  /**
+   * 5.23 Read more
+   */
+   .read-more {
+      #readmore {
+        color: dark-color('gray-light');
+      }
+   }
+
+   /**
+    * 5.24 Input password
+    */
+    .input-password {
+      .input-group-append {
+        .icon-visibility {
+          background-color: dark-color('secondary-light') !important;
+          border-color: dark-color('gray-dark');
+          &.update-border {
+            border-color: dark-color('focus') !important;
+          }
+        }
+     }
+   }
+
+    /**
+      * 5.25 Date picker
+      */
+      .vdp-datepicker {
+        .vdp-datepicker__calendar {
+          background: dark-color('secondary-light') !important;
+          border-color: dark-color('gray-dark') !important;
+          header {
+            .prev:hover, .next:hover, .up:hover {
+              background: dark-color('gray') !important;
+            }
+            .next {
+              &:after {
+                border-left-color: dark-color('gray-light') !important;
+              }
+              &.disabled:after {
+                border-left-color: dark-color('gray-dark') !important;
+              }
+            }
+            .prev {
+              &:after {
+                border-right-color: dark-color('gray-light') !important;
+              }
+            }
+          };
+          .cell {
+            &.disabled {
+              color: dark-color('gray-dark') !important;
+            }
+          }
+        }
+      }
+
+  /**
+    * 6. Modal
+    */
+  .modal {
+    .modal-header {
+      border-color: dark-color('gray-dark') !important;
+    }
+
+    .modal-content {
+      background: dark-color('secondary-light') !important;
+    }
+
+    .modal-footer {
+      background: dark-color('secondary-light') !important;
+      border-color: dark-color('gray-dark') !important;
+    }
+
+    /**
+      * 6.1 SessionAlertModal
+      */
+    &#session-alert-modal {
+      .modal-content {
+        border-color: dark-color('gray-dark') !important;
+      }
+    }
+
+    /**
+      * 6.2 UserMutualConnectionsModal
+      */
+    &#user-mutual-connections-modal {
+      .user {
+        background: dark-color('secondary-light') !important;
+      }
+    }
+
+    /**
+      * 6.3 PostStarredModal
+      */
+    &#post-starred-modal {
+      .user {
+        background: dark-color('secondary-light') !important;
+        border-color: dark-color('gray-dark') !important;
+      }
+    }
+
+    /**
+      * 6.4 ArticleWriteModal
+      */
+    &#article-write-modal {
+      .title {
+        color: dark-color('gray-light') !important;
+      }
+
+      .ql-editor {
+        * {
+          color: dark-color('gray-silver') !important;
+        }
+        a {
+          color: dark-color('gray') !important;
+        }
+        &.ql-blank::before {
+          color: dark-color('gray-dark') !important;
+        }
+      }
+
+      .ql-toolbar {
+        .ql-stroke {
+          stroke: dark-color('gray-light');
+        }
+        .ql-fill {
+          fill: dark-color('gray-light');
+        }
+        .ql-active .ql-stroke {
+          stroke: #06c;
+        }
+        .ql-active .ql-fill {
+          fill: #06c;
+        }
+      }
+    }
+
+    /**
+     * 6.6 Post create modal
+     */
+    #post-create-modal {
+      .footer {
+        .icon {
+          fill: dark-color('gray-silver');
+        }
+        .article {
+          color: dark-color('gray-silver') !important;
+        }
+      }
+    }
+
+    /**
+     * 6.7 Article read modal
+     */
+    &#article-read-modal {
+      .modal-body {
+        color: dark-color('gray-silver');
+        .content {
+          * {
+            color: dark-color('gray-silver') !important;
+          }
+          a {
+            color: dark-color('gray') !important;
+          }
+        }
+      }
+    }
+
+    /**
+     * 6.8 User connections modal
+     */
+    &#user-connections-modal {
+      .user {
+        background: dark-color('secondary-light') !important;
+      }
+    }
+  }
+
+  /**
+    * 7 Responsive
+    */
+
+    /**
+      * 7.1 Mobile logo
+      */
+    .mobile-logo {
+      border-color: dark-color('gray-dark') !important;
+    }
+
+    /**
+      * 7.2 Mobile menu
+      */
+    #mobile-menu {
+      background-color: dark-color('secondary-light') !important;
+
+      .menu-item:not(.router-link-active) {
+        h6 {
+          color: dark-color('gray-light');
+        }
+      }
+    }
+}
